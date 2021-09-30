@@ -1,5 +1,6 @@
 const btn = this.document.querySelector('#btn')
-const BrowserWindow = require('electron').remote.BrowserWindow
+//const { BrowserWindow } = require('electron').remote
+const { BrowserWindow } = require('electron')
 
 window.onload = function () {
     btn.onclick = () => {
@@ -7,12 +8,13 @@ window.onload = function () {
             width: 500,
             height: 500,
             webPreferences: {
-                nodeIntegration: true,
+                ontextIsolation: false,
+                nodeIntegration: true, // 是否集成 Nodejs
                 enableRemoteModule: true
             }
         }
         )
         newWin.loadFile('yellow.html')
-        newWin.on('close', () => { win = null })
+        newWin.on('close', () => { newWin = null })
     }
 }

@@ -15,7 +15,7 @@ app.on('ready', () => {
         }
     });
 
-    mainWindow.loadFile('index.html')
+    mainWindow.loadFile('demo2.html')
 
     mainWindow.on('closed', () => {
         mainWindow = null
